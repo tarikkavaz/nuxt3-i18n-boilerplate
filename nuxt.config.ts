@@ -55,18 +55,22 @@ export default defineNuxtConfig({
     pages: {
       about: {
         en: '/about',
+        de: '/uber-uns',
         tr: '/hakkimizda',
       },
       contact: {
         en: '/contact',
+        de: '/kontakt',
         tr: '/iletisim',
       },
       news: {
         en: '/news',
+        de: '/nachrichten',
         tr: '/haberler',
       },
       products: {
         en: '/products',
+        de: '/produkte',
         tr: '/urunler',
       },
     },
