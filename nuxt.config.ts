@@ -49,6 +49,7 @@ export default defineNuxtConfig({
     customRoutes: 'config',
     locales: [
       { code: 'en', iso: 'en-GB', name: 'English', file: 'en.ts'},
+      { code: 'de', iso: 'de-DE', name: 'Deutsch', file: 'de.ts'},
       { code: 'tr', iso: 'tr-TR', name: 'Türkçe', file: 'tr.ts'}
     ],
     pages: {

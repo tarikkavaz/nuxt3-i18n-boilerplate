@@ -10,7 +10,7 @@
       <ColorModeSwitcher />
       <div class="flex items-center gap-4">
         <OtherLang />
-        <!-- <LangSwitch /> -->
+        <LangSwitch />
       </div>
     </div>
   </div>
