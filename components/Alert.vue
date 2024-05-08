@@ -1,5 +1,5 @@
 <template>
-  <div :class="computedClass">
+  <div :class="computedClass" class="[&_p]:my-4">
     <slot />
   </div>
 </template>

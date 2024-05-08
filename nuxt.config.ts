@@ -1,8 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-const BASE_URL = 'nuxt3-i18n-boilerplate.vercel.app'; // Change this to your domain
+const BASE_URL = 'nuxt3-i18n-boilerplate.vercel.app';
 
 export default defineNuxtConfig({
+  ssr: false,
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/i18n', // https://i18n.nuxtjs.org/
@@ -25,8 +26,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteurl: `https://${BASE_URL}`,
-      // apiUrl: BASE_URL,
-      email: 'info@domainname.com' // Change this to your email
+      email: 'info@yourdomain.com'
     }
   },
   $development: { 
@@ -49,46 +49,43 @@ export default defineNuxtConfig({
     customRoutes: 'config',
     locales: [
       { code: 'en', iso: 'en-GB', name: 'English', file: 'en.ts'},
-      { code: 'de', iso: 'de-DE', name: 'Deutsch', file: 'de.ts'},
       { code: 'tr', iso: 'tr-TR', name: 'Türkçe', file: 'tr.ts'}
     ],
     pages: {
       about: {
         en: '/about',
-        de: '/uber-uns',
         tr: '/hakkimizda',
+      },
+      about_theteam: {
+        en: '/about/team',
+        tr: '/hakkimizda/ekip',
+      },
+      about_company: {
+        en: '/about/company',
+        tr: '/hakkimizda/firma',
       },
       contact: {
         en: '/contact',
-        de: '/kontakt',
         tr: '/iletisim',
-      },
-      news: {
-        en: '/news',
-        de: '/nachrichten',
-        tr: '/haberler',
       },
       products: {
         en: '/products',
-        de: '/produkte',
         tr: '/urunler',
       },
     },
   },
   gtag: {
-    id: 'G-XXXXXXXXXX'
+    id: 'G-xxxxxxx'
   },
   googleFonts: {
     families: {
+      Raleway: '100..900',
+      'Libre+Baskerville': [400, 700],
       // Roboto: true,
       // 'Josefin+Sans': true,
       // Lato: [100, 300],
-      Raleway: [400, 700],
+      // Raleway: [400, 700],
       // Inter: '200..700',
-      // 'Crimson Pro': {
-      //   wght: '200..900',
-      //   ital: '200..700',
-      // }
     }
   }
 })

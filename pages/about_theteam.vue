@@ -1,14 +1,16 @@
 <template>
-  <h2 class="font-Libre">{{ $t('welcome') }}</h2>
   <component :is="currentContent"></component>
+  <Alert class="text-red-900 bg-red-200 dark:text-red-200 dark:bg-red-900">
+    <p>{{ $t('alert') }}</p>
+  </Alert>
 </template>
 <script setup lang="ts">
-const pageName = 'index';
+const pageName = 'about_theteam';
 const { t } = useI18n();
 const { headerData } = useHeaderData();
 const { currentContent } = pageSetup(pageName);
 headerData.value = {
-  image: '/images/0.png',
+  image: '/images/d.png',
   title: t(`${pageName}HeaderTitle`),
   paragraph: t(`${pageName}HeaderDescription`)
 };

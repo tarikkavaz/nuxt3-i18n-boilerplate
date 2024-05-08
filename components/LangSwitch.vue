@@ -1,7 +1,7 @@
 <template>
   <select 
   v-model="language"
-  class="h-10 p-1 text-green-300 border rounded bg-green-950 dark:bg-green-300 dark:text-green-950 dark:border-gray-700"
+  class="h-10 p-1 text-malachite-300 border rounded bg-malachite-950 dark:bg-malachite-300 dark:text-malachite-950 dark:border-gray-700"
       >
     <option v-for="lang in locales" :key="lang" :value="lang.code">{{ lang.name }}</option>
   </select>

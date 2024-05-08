@@ -1,12 +1,13 @@
 <template>
   <div>
-    <NuxtLink v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)" class="px-4 py-2">
-      {{ locale.name }}
+    <NuxtLink v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)" class="flex items-center gap-1 border-gray-400 md:pl-4 md:border-l-2">
+      <GlobeAltIcon class="size-4" />{{ locale.name }}
     </NuxtLink>
   </div>
 </template>
 
 <script setup>
+  import { GlobeAltIcon } from '@heroicons/vue/20/solid'
   const { locale, locales, setLocale } = useI18n()
   const switchLocalePath = useSwitchLocalePath()
   const availableLocales = computed(() => locales.value.filter(l => l.code !== locale.value))
@@ -16,7 +17,5 @@
   })
 </script>
 <style scoped>
-a:hover {
-  @apply bg-black/20;
-}
+
 </style>

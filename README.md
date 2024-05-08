@@ -1,75 +1,201 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 i18n Boilerplate
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 
-Make sure to install the dependencies:
+Clone the repo by appending your domain name (yourdomain.com) at the end of the command, and enter the folder.
 
 ```bash
-# npm
-npm install
+git clone https://github.com/tarikkavaz/nuxt3-i18n-boilerplate.git yourdomain.com
+cd yourdomain.com
+```
 
-# pnpm
-pnpm install
+Install the packages with **yarn**.
 
-# yarn
+```bash
 yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Development
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
 yarn dev
+```
+Open http://localhost:3000 in your browser.
 
-# bun
-bun run dev
+## Nuxt Config Settings
+
+`nuxt.config.ts`
+
+Enter the site address.
+
+```ts
+const BASE_URL = 'yourdomain.com'; 
 ```
 
-## Production
+Enter the email address. (Used in `Footer.vue`)
 
-Build the application for production:
 
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```ts
+email: 'info@yourdomain.com'
 ```
 
-Locally preview production build:
+Enter page paths.
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+```ts
+pages: {
+  about: {
+    en: '/about', //http://localhost:3000/en/about
+    tr: '/hakkimizda', //http://localhost:3000/tr/hakkimizda
+  },
+  about_theteam: {
+    en: '/about/team', //http://localhost:3000/en/about/team
+    tr: '/hakkimizda/ekip', http://localhost:3000/tr/hakkimizda/ekip
+  },
+  about_company: {
+    en: '/about/company',
+    tr: '/hakkimizda/firma',
+  },
+  contact: {
+    en: '/contact',
+    tr: '/iletisim',
+  },
+  news: {
+    en: '/news',
+    tr: '/haberler',
+  }
+},
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Enter the Google Analytics code.
+
+```ts
+gtag: {
+  id: 'G-XXXXXXXXXX'
+},
+```
+
+Set up Google Fonts.
+
+```ts
+googleFonts: {
+  families: {
+    Raleway: '100..900',
+    'Libre+Baskerville': [400, 700],
+  }
+}
+```
+
+## Tailwind Config Settings
+
+`tailwind.config.js`
+
+Define the fonts added to Nuxt Config.
+
+```js
+fontFamily: {
+  Raleway: ['Raleway', 'sans-serif'],
+  Libre: ['Libre Baskerville', 'serif'],
+},
+```
+
+Add any extra colors.
+
+```js
+'malachite': {
+    '50': '#f0fdf4',
+    '100': '#dbfde7',
+    '200': '#b9f9ce',
+    '300': '#82f3aa',
+    '400': '#45e37d',
+    '500': '#1ed760',
+    '600': '#11a847',
+    '700': '#11843b',
+    '800': '#136832',
+    '900': '#12552c',
+    '950': '#042f16',
+},
+```
+
+## Translations
+
+`lang/tr.ts` , `lang/en.ts` ...
+
+Add the mandatory translations for each page. Add other translations if available.
+
+```ts
+about: 'About',
+aboutDescription: 'About Page Description',
+aboutHeaderTitle: 'About Page Header Title',
+aboutHeaderDescription: 'About Page Header Description',
+```
+
+## Layout
+
+`layouts/default.vue`
+
+Add the classes to be added to `<body>` to the first div; add the classes to be added to the contents to `<main>`.
+
+```html
+<div class="flex flex-col justify-between min-h-svh font-Raleway bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-200">
+```
+
+```html
+<main 
+  class="
+    [&_a]:border-b-2 
+    [&_a]:border-dotted
+    [&_a]:border-malachite-500 
+    [&_a]:dark:border-malachite-200 
+    hover:[&_a]:border-solid
+
+    [&_p]:mb-4
+    [&_p]:text-pretty
+
+    ...
+  "
+>
+```
+
+## Header
+
+`components/Header.vue` 
+
+Write the menu titles. Use i18n addresses in the `name` and `to` sections. 
+
+```ts
+const navigation =  [
+  { name: 'index', to: '/' },
+  { name: 'about', to: 'about', 
+    subItems: [
+      { name: 'about_theteam', to: 'about_theteam' },
+      { name: 'about_company', to: 'about_company' }
+  ]},
+  { name: 'news', to: 'news' },
+  { name: 'contact', to: 'contact' },
+]
+```
+
+## Pages
+
+`pages/about.vue`
+
+Write the file name of the page.
+
+```ts
+const pageName = 'about'; 
+```
+
+Select the top area image.
+
+```ts
+image: '/images/d.png',
+```
+
+## Page Contents
+
+`content/aboutTR.vue`, `content/aboutEN.vue` ...
+
+Create a separate page for each language.
+
+Start with the page name and add the language code in uppercase.
