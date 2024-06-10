@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "config": {
-    "server": "deployer@172.16.0.43",
-    "path": "/home/deployer/sites/test.bilgi.edu.tr/"
+    "server": "deployer@xxx.xx.x.xx1",
+    "path": "/home/deployer/sites/nuxt3-boilerplate/"
   },
   "scripts": {
     "build": "nuxt build",
