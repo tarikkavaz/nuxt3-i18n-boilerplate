@@ -1,46 +1,45 @@
-# Nuxt 3 i18n Boilerplate
+# Nuxt 3 Boilerplate
 
+## Kurulum
 
-## Setup
-
-Clone the repo by appending your domain name (yourdomain.com) at the end of the command, and enter the folder.
+Komutun sonun alan adını (test.bilgi.edu.tr) ekleyerek repo'yu klonla, ve klasöre gir.
 
 ```bash
-git clone https://github.com/tarikkavaz/nuxt3-i18n-boilerplate.git yourdomain.com
-cd yourdomain.com
+git clone https://github.com/bilgi-webteam/nuxt3-boilerplate.git test.bilgi.edu.tr
+cd test.bilgi.edu.tr
 ```
 
-Install the packages with **yarn**.
+**yarn** ile paketleri kur.
 
 ```bash
 yarn install
 ```
 
-## Development
+## Geliştirme
 
 ```bash
 yarn dev
 ```
-Open http://localhost:3000 in your browser.
 
-## Nuxt Config Settings
+Tarayıcıda http://localhost:3000 adresini aç.
+
+## Nuxt Config Ayarları
 
 `nuxt.config.ts`
 
-Enter the site address.
+Site adresini gir.
 
 ```ts
-const BASE_URL = 'yourdomain.com'; 
+const BASE_URL = "test.bilgi.edu.tr";
 ```
 
-Enter the email address. (Used in `Footer.vue`)
-
+Mail adresini gir. (`Footer.vue`'da kullanım örneği var)
 
 ```ts
-email: 'info@yourdomain.com'
+email: "info@bilgi.edu.tr";
 ```
 
-Enter page paths.
+Sayfaların adreslerini yaz.
 
 ```ts
 pages: {
@@ -67,7 +66,7 @@ pages: {
 },
 ```
 
-Enter the Google Analytics code.
+Google Analytics kodunu gir.
 
 ```ts
 gtag: {
@@ -75,7 +74,7 @@ gtag: {
 },
 ```
 
-Set up Google Fonts.
+Google Font ayarlarını yap.
 
 ```ts
 googleFonts: {
@@ -86,11 +85,11 @@ googleFonts: {
 }
 ```
 
-## Tailwind Config Settings
+## Tailwind Config Ayarları
 
 `tailwind.config.js`
 
-Define the fonts added to Nuxt Config.
+Nuxt Config'e eklenen fontları tanımla.
 
 ```js
 fontFamily: {
@@ -99,7 +98,7 @@ fontFamily: {
 },
 ```
 
-Add any extra colors.
+Varsa ek renkleri ekle.
 
 ```js
 'malachite': {
@@ -117,85 +116,111 @@ Add any extra colors.
 },
 ```
 
-## Translations
+## Tercümeler
 
 `lang/tr.ts` , `lang/en.ts` ...
 
-Add the mandatory translations for each page. Add other translations if available.
+Her sayfa için zorunlu olan tercümeleri ekle. Varsa diğer tercümeleri ekle.
 
 ```ts
-about: 'About',
-aboutDescription: 'About Page Description',
-aboutHeaderTitle: 'About Page Header Title',
-aboutHeaderDescription: 'About Page Header Description',
+about: 'Hakkımızda',
+aboutDescription: 'Hakkımızda Sayfası Açıklaması',
+aboutHeaderTitle: 'Hakkımızda Sayfası Üstalan Başlık',
+aboutHeaderDescription: 'Hakkımızda Sayfası Üstalan Açıklaması',
 ```
 
 ## Layout
 
 `layouts/default.vue`
 
-Add the classes to be added to `<body>` to the first div; add the classes to be added to the contents to `<main>`.
+`<body>` ' ye eklenecek class'ları ilk div'e; içerikler'e eklenecek class'ları `<main>` e ekle.
 
 ```html
-<div class="flex flex-col justify-between min-h-svh font-Raleway bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-200">
+<div
+  class="flex min-h-svh flex-col justify-between bg-slate-100 font-Raleway text-slate-900 dark:bg-slate-900 dark:text-slate-200"
+></div>
 ```
 
 ```html
-<main 
-  class="
-    [&_a]:border-b-2 
-    [&_a]:border-dotted
-    [&_a]:border-malachite-500 
-    [&_a]:dark:border-malachite-200 
-    hover:[&_a]:border-solid
-
-    [&_p]:mb-4
-    [&_p]:text-pretty
-
-    ...
-  "
->
+<main
+  class="... [&_a]:border-b-2 [&_a]:border-dotted [&_a]:border-malachite-500 hover:[&_a]:border-solid [&_a]:dark:border-malachite-200 [&_p]:mb-4 [&_p]:text-pretty"
+></main>
 ```
 
-## Header
+## Üst alan (Header)
 
-`components/Header.vue` 
+`components/Header.vue`
 
-Write the menu titles. Use i18n addresses in the `name` and `to` sections. 
+Menü başlıklarını yaz. `name` ve `to` kısmlarıda i18n adreslerini kullan.
 
 ```ts
-const navigation =  [
-  { name: 'index', to: '/' },
-  { name: 'about', to: 'about', 
+const navigation = [
+  { name: "index", to: "/" },
+  {
+    name: "about",
+    to: "about",
     subItems: [
-      { name: 'about_theteam', to: 'about_theteam' },
-      { name: 'about_company', to: 'about_company' }
-  ]},
-  { name: 'news', to: 'news' },
-  { name: 'contact', to: 'contact' },
-]
+      { name: "about_theteam", to: "about_theteam" },
+      { name: "about_company", to: "about_company" },
+    ],
+  },
+  { name: "news", to: "news" },
+  { name: "contact", to: "contact" },
+];
 ```
 
-## Pages
+## Sayfalar
 
 `pages/about.vue`
 
-Write the file name of the page.
+Sayfanin dosya adını yaz.
 
 ```ts
-const pageName = 'about'; 
+const pageName = "about";
 ```
 
-Select the top area image.
+Üst alan görselini seç.
 
 ```ts
 image: '/images/d.png',
 ```
 
-## Page Contents
+## Sayfa içerikleri
 
 `content/aboutTR.vue`, `content/aboutEN.vue` ...
 
-Create a separate page for each language.
+Her dil için ayrı birer sayfa oluştur.
 
-Start with the page name and add the language code in uppercase.
+Sayfa adı ile başlayıp büyük harfle dilin kodunu ekle.
+
+## Sunucuya yükleme
+
+Sunucuda nginx ayarlarini [bu sayfa](https://www.notion.so/tarikkavaz/TBL-yeni-site-a-ma-cd39622843504cb8bfa40bef2f6af7ea)daki gibi yap
+
+`package.json`
+
+Sitenin sunucu IP ve klasör bilgilerini (test.bilgi.edu.tr) gir.
+
+```json
+"config": {
+  "server": "deployer@172.16.0.43",
+  "path": "/home/deployer/sites/test.bilgi.edu.tr/"
+},
+```
+
+Yukarıdaki ayar yapıldıysa aşağıdaki komutu çalıştır.
+
+```bash
+yarn deploy
+```
+
+Bu komut sırasıyla;
+
+- Lokaldeki `dist` klasörünü siler,
+- `nuxt generate` ile yeni `dist` klasörünü oluşturur,
+- Sunucudak `dist` klasörünü siler,
+- Secure Copy `scp` ile lokalde yeni oluşan `dist` klasörünü sunucuya kopyalar.
+
+---
+
+© [tarikkavaz.com](https://tarikkavaz.com)
