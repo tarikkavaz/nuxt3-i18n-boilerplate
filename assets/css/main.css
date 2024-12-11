@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-100;
+  @apply dark:bg-slate-900;
+}
+#content {
+  @apply [&_a]:border-b-2;
+  @apply [&_a]:border-dotted;
+  @apply [&_a]:border-malachite-500;
+  @apply hover:[&_a]:border-solid;
+  @apply [&_a]:dark:border-malachite-200;
+
+  @apply [&_h2]:mb-6;
+  @apply [&_h2]:font-Libre;
+  @apply [&_h2]:text-2xl;
+  @apply [&_h2]:font-bold;
+
+  @apply [&_h3]:mb-4;
+  @apply [&_h3]:font-Libre;
+  @apply [&_h3]:text-xl;
+  @apply [&_h3]:font-bold;
+
+  @apply [&_h4]:mb-2;
+  @apply [&_h4]:font-Libre;
+  @apply [&_h4]:text-lg;
+  @apply [&_h4]:font-bold;
+
+  @apply [&_h5]:mb-1;
+  @apply [&_h5]:font-Libre;
+  @apply [&_h5]:text-base;
+  @apply [&_h5]:font-bold;
+
+  @apply [&_p]:mb-4;
+  @apply [&_p]:text-pretty;
+}
